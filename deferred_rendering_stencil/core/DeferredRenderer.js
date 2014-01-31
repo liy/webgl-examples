@@ -11,13 +11,13 @@ function DeferredRenderer(){
   window.addEventListener('resize', this.onResize);
 
   this.dbExt = gl.getExtension("WEBGL_draw_buffers");
-  this.dtExt = gl.getExtension("WEBKIT_WEBGL_depth_texture");
+  this.dtExt = gl.getExtension("WEBGL_depth_texture");
   this.vaoExt = gl.getExtension("OES_vertex_array_object");
 
   // include extensions' properties into gl, for convenience reason.
-  var exts = [this.dbExt, this.dtExt, this.vaoExt, this.pdsExt];
+  var exts = [this.dbExt, this.dtExt, this.vaoExt];
   ExtensionCheck.check(exts);
-  
+
   for(var i=0; i<exts.length; ++i){
     var ext = exts[i];
     for(var name in ext){
