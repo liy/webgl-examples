@@ -91,8 +91,8 @@ vec3 getNormal(){
   float hr = texture2D(bumpTexture, vec2(v_TexCoord.x+textureDeltaX, v_TexCoord.y)).r;
   float ha = texture2D(bumpTexture, vec2(v_TexCoord.x, v_TexCoord.y+textureDeltaY)).r;
 
-  vec3 vr = vec3(1.0, 0.0, (hr-hg)*20.0);
-  vec3 va = vec3(0.0, 1.0, (ha-hg)*20.0);
+  vec3 vr = vec3(1.0, 0.0, (hr-hg)*6.0);
+  vec3 va = vec3(0.0, 1.0, (ha-hg)*6.0);
   vec3 normal = cross(vr, va);
 
   vec3 N = normalize(v_Normal);
@@ -119,7 +119,7 @@ vec4 pack(float depth){
   float b = fract(g * 255.0);
   float a = fract(b * 255.0);
   vec4 colour = vec4(r, g, b, a);
-  
+
   return colour - (colour.yzww * bias);
 }
 
